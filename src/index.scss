@@ -1,0 +1,108 @@
+$sm-break-point: 650px;
+$brand-dark-color:#0A0D36;
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap');
+@import './css/successTick.scss';
+
+body {
+  background:$brand-dark-color ;
+  color:$brand-dark-color;
+  max-width: 450px;
+  padding: 5px;
+	margin: 0 auto; 
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1{
+  text-align: center;
+}
+
+div#root {
+    margin-top: 24px;
+}
+
+.App {
+  background: white;
+  border-radius: 50px;
+  padding: 16px 13px 6px
+}
+
+.multistep-form{
+  form{
+    padding: 0px 7px;
+    & > div{
+      margin-bottom: 1rem;
+    }
+    input{
+      margin-bottom:0px;
+    }
+    [type=checkbox]+label{
+      display: inline;
+    }
+
+    label.required:after{
+      content: "*";
+    }
+    .info{
+      font-size: 12px;
+      margin-top: 7px;
+      border-radius: 8px;
+      padding: 9px;
+      ul{
+        column-count: 2;
+        column-gap: 10px;
+      }
+      @media only screen and (max-width: $sm-break-point){
+        ul{
+          column-count: 1;
+        }
+      }
+    }
+    .success-page{
+      display: inline-block;
+      text-align: center;
+    }
+  }
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    .button {
+      border-radius: 4px;
+    }
+  }
+}
+
+.field-error {
+  background: #f78d8d;
+  padding: 2px 7px;
+}
+
+.ordered.steps{
+  ul{
+    margin-left: 0;
+    list-style-type: none;
+    display: inline-flex;
+    width: 100%;
+    flex-wrap: wrap;
+    border: 1px solid rgba(34,36,38,.15);
+    li.step{
+      padding: 13px;
+      flex-grow: 1;
+      text-align: center;
+      &.active{
+        background: #dadada;
+      }
+    }
+  }
+  @media only screen and (max-width: $sm-break-point){
+    ul{
+      flex-direction: column;
+
+      li.step{
+        padding: 6px;
+      }
+    }
+  }
+}
