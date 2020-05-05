@@ -1,17 +1,26 @@
 import React from 'react'
-import { render, fireEvent, screen } from '@testing-library/react'
+import {
+  render,
+  fireEvent,
+  screen
+} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import App from './App'
 
 test('renders learn react link', () => {
-  const { getByText } = render(<App />);
+  const {
+    getByText
+  } = render( < App / > );
   const titleElement = getByText(/Sign up to tray.io/i);
   expect(titleElement).toBeInTheDocument();
 });
 
 
-test('Form can be submitted', async() => {
-  const { findByText, getByTestId } = render(<App />);
+test('Form can be submitted', async () => {
+  const {
+    findByText,
+    getByTestId
+  } = render( < App / > );
   const nameInput = screen.getByLabelText(/name/i)
   await userEvent.type(nameInput, 'Test Name')
   const emailInput = screen.getByLabelText(/email/i)

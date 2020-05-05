@@ -4,23 +4,24 @@ $brand-dark-color:#0A0D36;
 @import './css/successTick.scss';
 
 body {
-  background:$brand-dark-color ;
-  color:$brand-dark-color;
+  background: $brand-dark-color;
+  color: $brand-dark-color;
   max-width: 450px;
   padding: 5px;
-	margin: 0 auto; 
+  margin: 0 auto;
   font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-h1{
+
+h1 {
   text-align: center;
 }
 
 div#root {
-    margin-top: 24px;
+  margin-top: 24px;
 }
 
 .App {
@@ -29,45 +30,54 @@ div#root {
   padding: 16px 13px 6px
 }
 
-.multistep-form{
-  form{
+.multistep-form {
+  form {
     padding: 0px 7px;
-    & > div{
+
+    &>div {
       margin-bottom: 1rem;
     }
-    input{
-      margin-bottom:0px;
+
+    input {
+      margin-bottom: 0px;
     }
-    [type=checkbox]+label{
+
+    [type=checkbox]+label {
       display: inline;
     }
 
-    label.required:after{
+    label.required:after {
       content: "*";
     }
-    .info{
+
+    .info {
       font-size: 12px;
       margin-top: 7px;
       border-radius: 8px;
       padding: 9px;
-      ul{
+
+      ul {
         column-count: 2;
         column-gap: 10px;
       }
-      @media only screen and (max-width: $sm-break-point){
-        ul{
+
+      @media only screen and (max-width: $sm-break-point) {
+        ul {
           column-count: 1;
         }
       }
     }
-    .success-page{
+
+    .success-page {
       display: inline-block;
       text-align: center;
     }
   }
+
   .buttons {
     display: flex;
     justify-content: space-between;
+
     .button {
       border-radius: 4px;
     }
@@ -79,28 +89,31 @@ div#root {
   padding: 2px 7px;
 }
 
-.ordered.steps{
-  ul{
+.ordered.steps {
+  ul {
     margin-left: 0;
     list-style-type: none;
     display: inline-flex;
     width: 100%;
     flex-wrap: wrap;
-    border: 1px solid rgba(34,36,38,.15);
-    li.step{
+    border: 1px solid rgba(34, 36, 38, .15);
+
+    li.step {
       padding: 13px;
       flex-grow: 1;
       text-align: center;
-      &.active{
+
+      &.active {
         background: #dadada;
       }
     }
   }
-  @media only screen and (max-width: $sm-break-point){
-    ul{
+
+  @media only screen and (max-width: $sm-break-point) {
+    ul {
       flex-direction: column;
 
-      li.step{
+      li.step {
         padding: 6px;
       }
     }

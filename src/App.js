@@ -1,29 +1,9 @@
 import React from 'react';
 import { Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 
-import MultiStepForm from './components/MultiStepForm'
-
-const SignupSchema = Yup.object().shape({
-  name: Yup.string()
-    .required('Name is required'),
-  password: Yup.string()
-    .min(9, 'Password must be at least 9 characters long')
-    .matches(/[a-z]/gm, 'Password must have a lowercase letter')
-    .matches(/[A-Z]/gm, 'Password must have an uppercase letter')
-    .matches(/[0-9]/gm, 'Password must contain a number')
-    .required('Password is required'),
-  email: Yup.string()
-    .email('Invalid email')
-    .required('Email is required'),
-});
-
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-function MultiStepFormPage ({ children, title }) {
-  return(children) 
-}
-
+import {MultiStepForm, MultiStepFormPage} from './components/MultiStepForm'
+import  sleep from './utils/sleep';
+import SignupSchema from './helpers/SignupSchema'
 
 const App = () => (
   <div className="App">
@@ -34,8 +14,8 @@ const App = () => (
         role: '',
         email: '',
         password: '',
-        'tray-product-update-info':false,
-        'tray-general-info':false
+        'tray-product-update-info': false,
+        'tray-general-info': false
       }}
       validationSchema={SignupSchema}
       onSubmit={(values, actions) => {
@@ -106,11 +86,11 @@ const App = () => (
         title='Privacy'
       >
         <div>
-          <Field type="checkbox" name="tray-product-update-info" id="tray-product-update-info"  />
+          <Field type="checkbox" name="tray-product-update-info" id="tray-product-update-info" />
           <label htmlFor='tray-product-update-info'>Receive updates about Tray.io product by email</label>
         </div>
         <div>
-          <Field type="checkbox" name='tray-general-info' id="tray-general-info"  />
+          <Field type="checkbox" name='tray-general-info' id="tray-general-info" />
           <label htmlFor='tray-general-info'>Receive communication by email for other products created by the Tray.io team</label>
         </div>
       </MultiStepFormPage>
@@ -119,13 +99,12 @@ const App = () => (
       >
         <div className='success-page'>
           <div className='success-animation'>
-              <div className="circle-border"></div>
-              <div className="circle">
-                <div className="success"></div>
-              </div>
+            <div className="circle-border"></div>
+            <div className="circle">
+              <div className="success"></div>
+            </div>
           </div>
-        <div>Please verify you email address, you should have received an email from us already!</div>
-
+          <div>Please verify you email address, you should have received an email from us already!</div>
         </div>
       </MultiStepFormPage>
     </MultiStepForm>

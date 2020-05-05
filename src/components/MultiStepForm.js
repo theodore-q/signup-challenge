@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { Formik } from 'formik';
+import  MultiStepFormProgessTracker from './MultiStepFormProgessTracker'
 
-import  MultiStepFormTracker from './MultiStepFormTracker'
+function MultiStepFormPage({ children, title }) {
+    return (children)
+  }  
 
 function MultiStepForm({ initialValues, children, onSubmit, validationSchema }) {
     const [pageIndex, setPage] = useState(0)
@@ -35,7 +38,7 @@ function MultiStepForm({ initialValues, children, onSubmit, validationSchema }) 
 
     return (
         <div className='multistep-form'>
-            <MultiStepFormTracker
+            <MultiStepFormProgessTracker
                 pageTitles={pageTitles}
                 pageIndex={pageIndex}
             />
@@ -75,4 +78,4 @@ function MultiStepForm({ initialValues, children, onSubmit, validationSchema }) 
     );
 }
 
-export default MultiStepForm
+export {MultiStepForm, MultiStepFormPage}

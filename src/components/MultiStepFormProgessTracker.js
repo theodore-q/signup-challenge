@@ -1,6 +1,6 @@
 import React from 'react';
 
-function MultiStepFormTracker({ pageTitles, pageIndex }) {
+function MultiStepFormProgessTracker({ pageTitles, pageIndex }) {
     const listItems = pageTitles.map((title, i) => {
         return (<li className={'step ' + (i === pageIndex ? 'active' : '')} key={i}>
             {title}
@@ -11,4 +11,4 @@ function MultiStepFormTracker({ pageTitles, pageIndex }) {
     </div>);
 }
 
-export default MultiStepFormTracker
+export default MultiStepFormProgessTracker
