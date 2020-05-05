@@ -17,11 +17,11 @@ const App = () => (
         'tray-product-update-info': false,
         'tray-general-info': false
       }}
-      validationSchema={SignupSchema}
+      validationSchema={SignupSchema} // validationSchema is expected to be a YUP object.
       onSubmit={(values, actions) => {
-        sleep(300).then(() => {
+        sleep(300).then(() => { // sleep is a small utility to make the submission asynchronous
           console.log(JSON.stringify(values, null, 2));
-          actions.setSubmitting(false);
+          actions.setSubmitting(false); // setSubmitting is a formik function that finishes the subission cycle
         });
       }}
     >

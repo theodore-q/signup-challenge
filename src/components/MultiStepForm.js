@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Formik } from 'formik';
 import  MultiStepFormProgessTracker from './MultiStepFormProgessTracker'
 
+// MultiStepFormPage is to be nested in MultiStepForm to demarcate where each form page begins and ends. 
+
 function MultiStepFormPage({ children, title }) {
     return (children)
   }  
@@ -24,13 +26,13 @@ function MultiStepForm({ initialValues, children, onSubmit, validationSchema }) 
         setPage(Math.max(pageIndex - 1, 0))
     }
 
-    const handleSubmit = (values, bag) => {
+    const handleSubmit = (values, FormikBag) => { // only submit the form if the user is on the submission
         if (isSubmissionPage) {
-            next(values);
-            return onSubmit(values, bag);
+            next(values); // continue on to the success page
+            return onSubmit(values, FormikBag);
         } else {
-            bag.setTouched({});
-            bag.setSubmitting(false);
+            FormikBag.setTouched({});
+            FormikBag.setSubmitting(false);
             next(values);
         }
     };
@@ -62,7 +64,9 @@ function MultiStepForm({ initialValues, children, onSubmit, validationSchema }) 
                                 </button>
                             )}
 
-                            {(!isLastPage && !isSubmissionPage) && <button className="button" data-testid="next" type="submit">Next »</button>}
+                            {(!isLastPage && !isSubmissionPage) && (  // add the next button to pages before the submission page
+                                <button className="button" data-testid="next" type="submit">Next »</button>
+                            )}
                             {isSubmissionPage && (
                                 <button className="button" data-testid="submit" type="submit" disabled={isSubmitting}>
                                     Submit
